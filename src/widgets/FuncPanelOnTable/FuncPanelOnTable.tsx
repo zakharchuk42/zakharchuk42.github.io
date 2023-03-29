@@ -3,10 +3,14 @@ import { IoLockOpenOutline } from 'react-icons/io5'
 import { IoTrashOutline } from 'react-icons/io5'
 import { IoCreateOutline } from 'react-icons/io5'
 import { IoInformationSharp } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
+import { POPUPS } from '../../helpers/constants/allPopups'
 import { useActions } from '../../helpers/hooks/useActions'
+import { callPopup } from '../../helpers/utils/callPopup'
 import s from './FuncPanelOnTable.module.scss'
 
 export const FuncPanelOnTable = () => {
+  const navigate = useNavigate()
   const {
     removeAllFilesFromTable,
     removeAllNotesFromTable,
@@ -14,7 +18,7 @@ export const FuncPanelOnTable = () => {
     unblockAllFilesOnTable,
   } = useActions()
 
-  const editNote = () => {}
+  const editNote = () => navigate(callPopup(POPUPS.EDIT_NOTE))
   const removeAllFiles = () => {
     removeAllFilesFromTable()
     removeAllNotesFromTable()

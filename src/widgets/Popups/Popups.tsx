@@ -5,12 +5,14 @@ import { EnterName } from './components/EnterName/EnterName'
 import { BackDrop } from '../../Ui/BackDrop/BackDrop'
 import { Block } from '../../Ui/Block/Block'
 import { CaseFile } from './components/CaseFile/CaseFile'
+import { EditNote } from './components/EditNote/EditNote'
+import { NotePopup } from './components/NotePopup/NotePopup'
 
 const popups = {
   [POPUPS.ENTER_NAME]: EnterName,
   [POPUPS.CASE_FILE]: CaseFile,
-  // [POPUPS.editNote]: EditNote,
-  // [POPUPS.note]: NotePopup,
+  [POPUPS.EDIT_NOTE]: EditNote,
+  [POPUPS.NOTE_POPUP]: NotePopup,
 }
 
 const Popups = () => {
