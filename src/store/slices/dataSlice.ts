@@ -134,6 +134,11 @@ const dataSlice = createSlice({
   reducers: {
     addFileOnTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
       state.filesOnTable.push(actions.payload)
+      state.caseFiles[actions.payload.chapter] = state.caseFiles[
+        actions.payload.chapter
+      ].map((file) =>
+        file.id === actions.payload.id ? { ...file, isOnTable: true } : file
+      )
     },
   },
 })

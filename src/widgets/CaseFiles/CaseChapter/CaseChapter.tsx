@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 import { POPUPS } from '../../../helpers/constants/allPopups'
 import { callPopup } from '../../../helpers/utils/callPopup'
@@ -7,12 +8,30 @@ import s from './CaseChapter.module.scss'
 import { CaseChapterProps } from './types'
 
 export const CaseChapter: React.FC<CaseChapterProps> = ({ chapterFiles }) => {
+  const onDragStart = (e: any, file: any) => {
+    const shiftX = e.clientX - e.target.getBoundingClientRect().left
+    const shiftY = e.clientY - e.target.getBoundingClientRect().top
+    // setFile({
+    //   ...file,
+    //   position: {
+    //     x: shiftX,
+    //     y: shiftY,
+    //   },
+    // })
+  }
+
   return (
     <Block justify='between' width='100%'>
       {chapterFiles.map((file) => {
         const caseImage = getImageUrl(file.imgPath)
         return (
-          <div key={file.alt}>
+          <div
+            className={clsx({
+              [s.disabledBlock]: file.isOnTable,
+            })}
+            key={file.alt}
+            onDragStart={(e) => onDragStart(e, file)}
+          >
             <Block>
               <Link
                 className={s.link}
