@@ -7,6 +7,10 @@ export type CaseFilesTypes = {
   imgPath: string
   alt: string
   chapter: string
+  position?: {
+    x: number
+    y: number
+  }
 }
 
 export type DataSliceType = {
@@ -138,6 +142,11 @@ const dataSlice = createSlice({
         actions.payload.chapter
       ].map((file) =>
         file.id === actions.payload.id ? { ...file, isOnTable: true } : file
+      )
+    },
+    moveArroundTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
+      state.filesOnTable = state.filesOnTable.map((file) =>
+        file.id === actions.payload.id ? actions.payload : file
       )
     },
   },

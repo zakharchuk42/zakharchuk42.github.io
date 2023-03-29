@@ -5,7 +5,11 @@ import { Typography } from '../../Ui/Typography/Typography'
 import { CaseChapter } from './CaseChapter/CaseChapter'
 import s from './CaseFiles.module.scss'
 
-export const CaseFiles = () => {
+export interface CaseFilesProps {
+  setFile: any
+}
+
+export const CaseFiles: React.FC<CaseFilesProps> = ({ setFile }) => {
   const caseFiles = useTypedSelector((s) => s.data)
 
   return (
@@ -13,6 +17,7 @@ export const CaseFiles = () => {
       <Drawer left>
         {caseFiles.chapter.map((chapter: string) => {
           const chapterFiles = caseFiles.caseFiles[chapter]
+
           return (
             <div key={chapter}>
               <Block align='center' direction='column'>
@@ -21,7 +26,7 @@ export const CaseFiles = () => {
                     {chapter}
                   </Typography>
                 </div>
-                <CaseChapter chapterFiles={chapterFiles} />
+                <CaseChapter chapterFiles={chapterFiles} setFile={setFile} />
               </Block>
             </div>
           )

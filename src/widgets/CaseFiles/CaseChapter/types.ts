@@ -7,4 +7,5 @@ export interface CaseChapterProps {
     isBlocked: boolean
     isOnTable: boolean
   }[]
+  setFile: (file: object) => void
 }

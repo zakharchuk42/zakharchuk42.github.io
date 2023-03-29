@@ -7,17 +7,20 @@ import { Block } from '../../../Ui/Block/Block'
 import s from './CaseChapter.module.scss'
 import { CaseChapterProps } from './types'
 
-export const CaseChapter: React.FC<CaseChapterProps> = ({ chapterFiles }) => {
+export const CaseChapter: React.FC<CaseChapterProps> = ({
+  chapterFiles,
+  setFile,
+}) => {
   const onDragStart = (e: any, file: any) => {
     const shiftX = e.clientX - e.target.getBoundingClientRect().left
     const shiftY = e.clientY - e.target.getBoundingClientRect().top
-    // setFile({
-    //   ...file,
-    //   position: {
-    //     x: shiftX,
-    //     y: shiftY,
-    //   },
-    // })
+    setFile({
+      ...file,
+      position: {
+        x: shiftX,
+        y: shiftY,
+      },
+    })
   }
 
   return (
@@ -30,6 +33,7 @@ export const CaseChapter: React.FC<CaseChapterProps> = ({ chapterFiles }) => {
               [s.disabledBlock]: file.isOnTable,
             })}
             key={file.alt}
+            draggable={true}
             onDragStart={(e) => onDragStart(e, file)}
           >
             <Block>
