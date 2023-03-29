@@ -1,0 +1,23 @@
+.itemOnTable {
+  position: relative;
+  cursor: grab;
+}
+
+.image {
+  width: 210px;
+  height: auto;
+  filter: drop-shadow(var(--shadow));
+}
+
+.button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--color-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}

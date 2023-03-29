@@ -7,7 +7,12 @@ const initialState = {
 const notesSlice = createSlice({
   name: 'Notes',
   initialState,
-  reducers: {},
+  reducers: {
+    removeAllNotesFromTable: (state) => {
+      state.notes = []
+    },
+  },
 })
 
 export const notesReducer = notesSlice.reducer
+export const notesActions = notesSlice.actions

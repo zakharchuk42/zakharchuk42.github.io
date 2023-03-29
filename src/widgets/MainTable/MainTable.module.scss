@@ -7,11 +7,6 @@
   align-items: flex-end;
   gap: 20px;
   overflow: hidden;
+  padding-bottom: 90px;
 }
 
-.image {
-  width: 210px;
-  height: auto;
-  filter: drop-shadow(var(--shadow));
-  cursor: grab;
-}

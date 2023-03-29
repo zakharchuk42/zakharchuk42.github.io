@@ -1,0 +1,38 @@
+.optionalPanel {
+  display: inline-flex;
+  gap: 10px;
+  padding-bottom: 7px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  transform: translateY(0);
+  visibility: hidden;
+}
+
+.optionalPanelHovered {
+  transform: translateY(-100%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--color-black);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  svg {
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    svg {
+      transform: scale(1.1);
+    }
+  }
+}

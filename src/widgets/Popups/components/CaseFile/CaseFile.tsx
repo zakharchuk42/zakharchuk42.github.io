@@ -15,12 +15,12 @@ import { CaseFilesTypes } from '../../../../store/slices/dataSlice'
 export const CaseFile = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
-  const { addFileOnTable } = useActions()
+  const { addFileOnTable, deleteFileFromTable } = useActions()
 
   const {
-    open: isZoome,
-    handleOpen: zoomIn,
-    handleClose: zoomOut,
+    boolean: isZoome,
+    handleTrue: zoomIn,
+    handleFalse: zoomOut,
   } = useOpenState()
 
   useEffect(() => {
@@ -32,16 +32,15 @@ export const CaseFile = () => {
   const addOnTable = () => {
     navigate(-1)
     if (caseFile) {
-      addFileOnTable({ ...caseFile })
+      addFileOnTable({ ...caseFile, isOnTable: true })
     }
   }
 
   const removeFromTable = () => {
     navigate(-1)
-    // dispatch({
-    //   type: CASE_FILES_TYPES.REMOVE_FROM_TABEL,
-    //   payload: caseFile,
-    // })
+    if (caseFile) {
+      deleteFileFromTable({ id: caseFile.id, chapter: caseFile.chapter })
+    }
   }
 
   const imageClass = clsx(s.caseImage, {

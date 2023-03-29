@@ -149,6 +149,52 @@ const dataSlice = createSlice({
         file.id === actions.payload.id ? actions.payload : file
       )
     },
+    deleteFileFromTable: (
+      state,
+      actions: PayloadAction<{ id: number; chapter: string }>
+    ) => {
+      state.caseFiles[actions.payload.chapter] = state.caseFiles[
+        actions.payload.chapter
+      ].map((file) =>
+        file.id === actions.payload.id ? { ...file, isOnTable: false } : file
+      )
+      state.filesOnTable = state.filesOnTable.filter(
+        (file) => file.id !== actions.payload.id
+      )
+    },
+    blockToggleFileOnTable: (state, actions: PayloadAction<{ id: number }>) => {
+      state.filesOnTable = state.filesOnTable.map((file) =>
+        file.id === actions.payload.id
+          ? { ...file, isBlocked: !file.isBlocked }
+          : file
+      )
+    },
+    removeAllFilesFromTable: (state) => {
+      const removedFiles: CaseFilesTypes[] = []
+      state.filesOnTable = state.filesOnTable.filter((file) => {
+        if (!file.isBlocked) {
+          removedFiles.push(file)
+          return null
+        }
+        return file
+      })
+
+      removedFiles.forEach((item) => {
+        state.caseFiles[item.chapter] = state.caseFiles[item.chapter].map(
+          (file) => (file.id === item.id ? { ...file, isOnTable: false } : file)
+        )
+      })
+    },
+    blockAllFilesOnTable: (state) => {
+      state.filesOnTable = state.filesOnTable.map((file) =>
+        file.isBlocked ? file : { ...file, isBlocked: true }
+      )
+    },
+    unblockAllFilesOnTable: (state) => {
+      state.filesOnTable = state.filesOnTable.map((file) =>
+        file.isBlocked ? { ...file, isBlocked: false } : file
+      )
+    },
   },
 })
 

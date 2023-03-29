@@ -5,8 +5,8 @@ import clsx from 'clsx'
 import { useOpenState } from '../../helpers/hooks/useOpenState'
 
 export const Drawer: React.FC<DrawerProps> = ({ children, left, right }) => {
-  const { open: leftOpen, handleToggle: leftToggle } = useOpenState()
-  const { open: rightOpen, handleToggle: rightToggle } = useOpenState()
+  const { boolean: leftOpen, handleToggle: leftToggle } = useOpenState()
+  const { boolean: rightOpen, handleToggle: rightToggle } = useOpenState()
 
   const drawerClass = clsx(s.drawer, {
     [s.drawerLeft]: left,

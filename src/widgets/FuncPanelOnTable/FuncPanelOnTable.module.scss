@@ -1,0 +1,21 @@
+.funcPanelOnTable {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  background: var(--color-black);
+  gap: 20px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  svg {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

@@ -47,7 +47,7 @@ export const useDraggable: DraggableType = (file, setFile) => {
           y: e.pageY - file.position!.y,
         },
       }
-      addFileOnTable({ ...payload })
+      addFileOnTable({ ...payload, isOnTable: true })
       setFile(null)
     }
   }
