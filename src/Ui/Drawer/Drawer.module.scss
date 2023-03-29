@@ -1,0 +1,97 @@
+.drawer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 420px;
+  z-index: 10;
+  background: var(--color-black);
+  transition: all 0.3s ease;
+  padding: 0 var(--p-xxl);
+}
+
+.drawerLeft {
+  transform: translateX(-96%);
+  left: 0;
+}
+
+.drawerLeftOpen {
+  transform: translateX(0);
+}
+
+.drawerRight {
+  transform: translateX(96%);
+  right: 0;
+}
+
+.drawerRightOpen {
+  transform: translateX(0);
+}
+
+
+.drawerButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  background: var(--color-black);
+
+  svg {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.drawerButtonLeft {
+  border-radius: 0 0 20px 0;
+  right: 0;
+  transform: translate(98%, 0);
+  
+  svg {
+    transition: all 0.3s ease;
+    transform: rotate(180deg);
+
+    &:hover {
+      transform: rotate(180deg) scale(1.2);
+    }
+  }
+}
+
+.drawerButtonLeftOpen {
+  svg {
+    transition: all 0.3s ease;
+    transform: rotate(0deg);
+    &:hover {
+      transform: rotate(0deg) scale(1.2);
+    }
+  }
+}
+
+.drawerButtonRight {
+  border-radius: 0 0 0 20px;
+  right: left;
+  transform: translate(-140%, 0);
+  
+  svg {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.drawerButtonRightOpen {
+  svg {
+    transition: all 0.3s ease;
+    transform: rotate(180deg);
+    &:hover {
+      transform: rotate(180deg) scale(1.2);
+    }
+  }
+}

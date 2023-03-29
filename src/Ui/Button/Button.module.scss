@@ -1,0 +1,19 @@
+.button {
+  cursor: pointer;
+  background-color: var(--color-red);
+  padding: var(--p-lg) var(--p-xxl);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  min-width: 210px;
+  text-align: center;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px -4px 0px inset;
+  }
+
+  &:active {
+    box-shadow: none;
+    background-color: var(--color-red-active);
+  }
+}

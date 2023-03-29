@@ -1,0 +1,12 @@
+.newspaper {
+  position: absolute;
+  height: 95%;
+  right: -250px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.5s ease;
+
+  &:hover {
+    right: 0;
+  }
+}

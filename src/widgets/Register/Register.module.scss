@@ -1,0 +1,16 @@
+.register {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 72px;
+  background: url('../../../public/images/home-bg.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.registerTitle {
+  text-transform: uppercase;
+  font-size: 72px;
+  font-weight: var(--fw-bold);
+  color: var(--color-red);
+}

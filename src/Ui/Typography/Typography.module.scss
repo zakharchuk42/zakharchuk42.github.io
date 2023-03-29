@@ -1,0 +1,41 @@
+.colorWhite {
+  color: var(--color-white);
+}
+
+.colorRed {
+  color: var(--color-red);
+}
+
+.colorGrey {
+  color: var(--color-grey);
+}
+
+.h1 {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold)
+}
+
+.subtitle {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semi)
+}
+
+.body {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-reg);
+}
+
+.small {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-thin);
+}
+
+.btn {
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+}
+
+.uppercase { 
+  text-transform: uppercase;
+}
+

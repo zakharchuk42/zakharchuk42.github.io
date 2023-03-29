@@ -1,0 +1,17 @@
+.caseImage {
+  width: 98px;
+  height: 126px;
+  object-fit: cover;
+}
+
+.link {
+  text-decoration: none;
+  transition: all .3s ease;
+  color: var(--color-grey);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-thin);
+
+  &:hover {
+    color: var(--color-red)
+  }
+}
