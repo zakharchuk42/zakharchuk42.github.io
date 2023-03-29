@@ -2,7 +2,7 @@ import { useTypedSelector } from '../../helpers/hooks/useTypedSelector'
 import { Block } from '../../Ui/Block/Block'
 import { Drawer } from '../../Ui/Drawer/Drawer'
 import { Typography } from '../../Ui/Typography/Typography'
-import { CaseChapte } from './CaseChapter/CaseChapter'
+import { CaseChapter } from './CaseChapter/CaseChapter'
 import s from './CaseFiles.module.scss'
 
 type CaseType = 'Victim' | 'Suspects' | 'Testimony' | 'Evidence'
@@ -23,7 +23,7 @@ export const CaseFiles = () => {
                     {chapter}
                   </Typography>
                 </div>
-                <CaseChapte chapterFiles={chapterFiles} />
+                <CaseChapter chapterFiles={chapterFiles} />
               </Block>
             </div>
           )

@@ -1,0 +1,35 @@
+.caseImageWrapper {
+  height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.caseImage {
+  cursor: pointer;
+  max-height: 95vh;
+}
+
+.caseImageZoom {
+  max-height: initial;
+}
+
+.buttonsWrapper {
+  position: absolute;
+  right: 0;
+  background: var(--color-black);
+  border-radius: 20px 0 0 20px;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  svg {
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

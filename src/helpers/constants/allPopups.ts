@@ -4,4 +4,5 @@ export const GET_PARAMS = {
 
 export const POPUPS = {
   ENTER_NAME: 'enterName',
+  CASE_FILE: 'caseFile',
 }

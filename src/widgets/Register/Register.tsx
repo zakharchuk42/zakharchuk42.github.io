@@ -1,3 +1,5 @@
+import { POPUPS } from '../../helpers/constants/allPopups'
+import { callPopup } from '../../helpers/utils/callPopup'
 import { Block } from '../../Ui/Block/Block'
 import { CustomLink } from '../../Ui/CustomLink/CustomLink'
 import { Typography } from '../../Ui/Typography/Typography'
@@ -15,7 +17,9 @@ export const Register = () => {
           </Typography>
         </Block>
         <Block>
-          <CustomLink to={'?popup=enterName'}>Solve a murder</CustomLink>
+          <CustomLink to={callPopup(POPUPS.ENTER_NAME)}>
+            Solve a murder
+          </CustomLink>
         </Block>
       </div>
     </>
