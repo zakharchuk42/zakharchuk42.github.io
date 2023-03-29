@@ -1,6 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const initialState = {
+export type CaseFilesTypes = {
+  id: number
+  isOnTable: boolean
+  isBlocked: boolean
+  imgPath: string
+  alt: string
+  chapter: string
+}
+
+export type DataSliceType = {
+  chapter: string[]
+  caseFiles: {
+    [key: string]: CaseFilesTypes[]
+  }
+  filesOnTable: CaseFilesTypes[]
+}
+
+const initialState: DataSliceType = {
   chapter: ['Victim', 'Suspects', 'Testimony', 'Evidence'],
   caseFiles: {
     Victim: [
@@ -114,7 +131,12 @@ const initialState = {
 const dataSlice = createSlice({
   name: 'Case Files',
   initialState,
-  reducers: {},
+  reducers: {
+    addFileOnTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
+      state.filesOnTable.push(actions.payload)
+    },
+  },
 })
 
 export const dataReducer = dataSlice.reducer
+export const dataActions = dataSlice.actions

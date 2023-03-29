@@ -9,11 +9,14 @@ import { IoTrashOutline } from 'react-icons/io5'
 import s from './CaseFile.module.scss'
 import { Block } from '../../../../Ui/Block/Block'
 import { useOpenState } from '../../../../helpers/hooks/useOpenState'
+import { useActions } from '../../../../helpers/hooks/useActions'
+import { CaseFilesTypes } from '../../../../store/slices/dataSlice'
 
 export const CaseFile = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
-  const [caseFile, setCaseFile] = useState<any>()
+  const { addFileOnTable } = useActions()
+
   const {
     open: isZoome,
     handleOpen: zoomIn,
@@ -23,12 +26,14 @@ export const CaseFile = () => {
   useEffect(() => {
     setCaseFile(state)
   }, [])
+
+  const [caseFile, setCaseFile] = useState<CaseFilesTypes>()
+
   const addOnTable = () => {
     navigate(-1)
-    // dispatch({
-    //   type: CASE_FILES_TYPES.ADD_ON_TABLE,
-    //   payload: caseFile,
-    // })
+    if (caseFile) {
+      addFileOnTable({ ...caseFile })
+    }
   }
 
   const removeFromTable = () => {
@@ -68,7 +73,6 @@ export const CaseFile = () => {
               onClick={addOnTable}
             />
           )}
-
           <IoExpandOutline
             title={'Zoom in'}
             size='28px'

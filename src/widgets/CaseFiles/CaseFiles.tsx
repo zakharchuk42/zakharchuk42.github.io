@@ -5,8 +5,6 @@ import { Typography } from '../../Ui/Typography/Typography'
 import { CaseChapter } from './CaseChapter/CaseChapter'
 import s from './CaseFiles.module.scss'
 
-type CaseType = 'Victim' | 'Suspects' | 'Testimony' | 'Evidence'
-
 export const CaseFiles = () => {
   const caseFiles = useTypedSelector((s) => s.data)
 
@@ -14,7 +12,7 @@ export const CaseFiles = () => {
     <>
       <Drawer left>
         {caseFiles.chapter.map((chapter: string) => {
-          const chapterFiles = caseFiles.caseFiles[chapter as CaseType]
+          const chapterFiles = caseFiles.caseFiles[chapter]
           return (
             <div key={chapter}>
               <Block align='center' direction='column'>
