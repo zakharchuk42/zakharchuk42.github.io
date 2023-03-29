@@ -1,11 +1,6 @@
+import { CaseFilesTypes } from '../../../store/slices/dataSlice'
+
 export interface CaseChapterProps {
-  chapterFiles: {
-    alt: string
-    chapter: string
-    id: number
-    imgPath: string
-    isBlocked: boolean
-    isOnTable: boolean
-  }[]
-  setFile: (file: object) => void
+  chapterFiles: CaseFilesTypes[]
+  setFile: (file: CaseFilesTypes) => void
 }

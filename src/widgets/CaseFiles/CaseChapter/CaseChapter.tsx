@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { POPUPS } from '../../../helpers/constants/allPopups'
 import { callPopup } from '../../../helpers/utils/callPopup'
 import { getImageUrl } from '../../../helpers/utils/getImageUrl'
+import { CaseFilesTypes } from '../../../store/slices/dataSlice'
 import { Block } from '../../../Ui/Block/Block'
 import s from './CaseChapter.module.scss'
 import { CaseChapterProps } from './types'
@@ -11,7 +12,7 @@ export const CaseChapter: React.FC<CaseChapterProps> = ({
   chapterFiles,
   setFile,
 }) => {
-  const onDragStart = (e: any, file: any) => {
+  const onDragStart = (e: any, file: CaseFilesTypes) => {
     const shiftX = e.clientX - e.target.getBoundingClientRect().left
     const shiftY = e.clientY - e.target.getBoundingClientRect().top
     setFile({
