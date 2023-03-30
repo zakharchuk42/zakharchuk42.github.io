@@ -1,0 +1,16 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 72px;
+  background: url('../../../public/images/home-bg.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.title {
+  color: var(--color-red);
+  font-size: 102px;
+  font-weight: 700;
+}
