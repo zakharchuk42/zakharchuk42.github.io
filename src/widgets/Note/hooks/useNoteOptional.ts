@@ -11,28 +11,34 @@ import { NoteType } from '../../../store/slices/notesSlice'
 
 export const useNoteOptional = (note: NoteType) => {
   const navigate = useNavigate()
-  const openPopup = (path: string) => navigate(callPopup(path), { state: note })
-  const {} = useActions()
+
+  const { dellNote, toggleBlockNote } = useActions()
 
   return [
     {
       icon: IoSearchOutline,
-      callBack: () => openPopup(POPUPS.NOTE_POPUP),
+      callBack: () =>
+        navigate(callPopup(POPUPS.NOTE_POPUP), {
+          state: { title: 'Edit note', note },
+        }),
       title: 'Show note',
     },
     {
       icon: IoTrashOutline,
-      callBack: () => '',
+      callBack: () => dellNote({ id: note.id }),
       title: 'Remove from table',
     },
     {
       icon: note.isBlocked ? IoLockOpenOutline : IoLockClosedOutline,
-      callBack: () => '',
+      callBack: () => toggleBlockNote({ id: note.id }),
       title: note.isBlocked ? 'Block note' : 'Unlock note',
     },
     {
       icon: IoPencil,
-      callBack: () => openPopup(POPUPS.EDIT_NOTE),
+      callBack: () =>
+        navigate(callPopup(POPUPS.EDIT_NOTE), {
+          state: { title: 'Edit note', note },
+        }),
       title: 'Edit note',
     },
   ]

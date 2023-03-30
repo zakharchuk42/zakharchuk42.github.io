@@ -16,18 +16,25 @@ export const FuncPanelOnTable = () => {
     removeAllNotesFromTable,
     blockAllFilesOnTable,
     unblockAllFilesOnTable,
+    blockAllNotesOnTable,
+    unblockAllNotesOnTable,
   } = useActions()
 
-  const editNote = () => navigate(callPopup(POPUPS.EDIT_NOTE))
+  const editNote = () =>
+    navigate(callPopup(POPUPS.EDIT_NOTE), {
+      state: { title: 'Add note' },
+    })
   const removeAllFiles = () => {
     removeAllFilesFromTable()
     removeAllNotesFromTable()
   }
   const blockAll = () => {
     blockAllFilesOnTable()
+    blockAllNotesOnTable()
   }
   const unblockAll = () => {
     unblockAllFilesOnTable()
+    unblockAllNotesOnTable()
   }
 
   return (

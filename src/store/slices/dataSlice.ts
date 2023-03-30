@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export type CaseFilesTypes = {
   id: number
@@ -137,7 +137,7 @@ const dataSlice = createSlice({
   name: 'Case Files',
   initialState,
   reducers: {
-    addFileOnTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
+    addFileOnTable: (state, actions) => {
       state.filesOnTable.push(actions.payload)
       state.caseFiles[actions.payload.chapter] = state.caseFiles[
         actions.payload.chapter
@@ -145,15 +145,12 @@ const dataSlice = createSlice({
         file.id === actions.payload.id ? { ...file, isOnTable: true } : file
       )
     },
-    moveFileArroundTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
+    moveFileArroundTable: (state, actions) => {
       state.filesOnTable = state.filesOnTable.map((file) =>
         file.id === actions.payload.id ? actions.payload : file
       )
     },
-    deleteFileFromTable: (
-      state,
-      actions: PayloadAction<{ id: number; chapter: string }>
-    ) => {
+    deleteFileFromTable: (state, actions) => {
       state.caseFiles[actions.payload.chapter] = state.caseFiles[
         actions.payload.chapter
       ].map((file) =>
@@ -163,7 +160,7 @@ const dataSlice = createSlice({
         (file) => file.id !== actions.payload.id
       )
     },
-    blockToggleFileOnTable: (state, actions: PayloadAction<{ id: number }>) => {
+    blockToggleFileOnTable: (state, actions) => {
       state.filesOnTable = state.filesOnTable.map((file) =>
         file.id === actions.payload.id
           ? { ...file, isBlocked: !file.isBlocked }

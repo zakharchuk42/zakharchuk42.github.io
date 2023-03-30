@@ -27,9 +27,30 @@ const notesSlice = createSlice({
     addNote: (state, action) => {
       state.notes.push(action.payload)
     },
-    dellNote: (state, action) => {},
+    editNote: (state, action) => {
+      state.notes = state.notes.map((note) =>
+        note.id === action.payload.id
+          ? { ...note, note: action.payload.note }
+          : note
+      )
+    },
+    dellNote: (state, action) => {
+      state.notes = state.notes.filter((note) => {
+        if (note.isBlocked) {
+          return note
+        }
+        return action.payload.id !== note.id
+      })
+    },
     removeAllNotesFromTable: (state) => {
-      state.notes = []
+      state.notes = state.notes.filter((note) => (note.isBlocked ? note : null))
+    },
+    toggleBlockNote: (state, action) => {
+      state.notes = state.notes.map((note) =>
+        note.id === action.payload.id
+          ? { ...note, isBlocked: !note.isBlocked }
+          : note
+      )
     },
     blockAllNotesOnTable: (state) => {
       state.notes = state.notes.map((file) =>

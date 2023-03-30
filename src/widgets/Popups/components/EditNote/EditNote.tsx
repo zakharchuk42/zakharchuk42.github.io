@@ -1,51 +1,74 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useActions } from '../../../../helpers/hooks/useActions'
+import { NoteType } from '../../../../store/slices/notesSlice'
 import { Block } from '../../../../Ui/Block/Block'
 import { Button } from '../../../../Ui/Button/Button'
-import { CustomInput } from '../../../../Ui/CustomInput/CustomInput'
 import { CustomTextarea } from '../../../../Ui/CustomTextarea/CustomTextarea'
 import { PopupBox } from '../../../../Ui/PopupBox/PopupBox'
 import { Typography } from '../../../../Ui/Typography/Typography'
 import s from './EditNote.module.scss'
 
+type NoteStateType = {
+  note: NoteType
+  title: string
+}
+
 export const EditNote = () => {
-  const [note, setNote] = useState<string>('')
-  const [isError, setIsError] = useState<boolean>(false)
-  const { addNote } = useActions()
+  const { state } = useLocation()
   const navigate = useNavigate()
+  const { addNote, editNote } = useActions()
+  const [noteState, setNoteState] = useState<NoteStateType>()
+
+  useEffect(() => {
+    setNoteState(state)
+    setText(state.note?.note || '')
+  }, [])
+
+  const [text, setText] = useState<string>('')
+  const [isError, setIsError] = useState<boolean>(false)
 
   const submit = () => {
-    if (note.length < 5) {
+    if (text.length < 5) {
       setIsError(true)
       return
     }
-    const rotate = Math.floor(-4 + Math.random() * (3 + 1 - -4))
-    const payload = {
-      id: Math.floor(Math.random() * 100000),
-      note,
-      position: {
-        x: null,
-        y: null,
-        rotate,
-        positionItem: false,
-      },
-      isBlocked: false,
+
+    if (!noteState?.note) {
+      const rotate = Math.floor(-4 + Math.random() * (3 + 1 - -4))
+      const payload = {
+        id: Math.floor(Math.random() * 100000),
+        note: text,
+        position: {
+          x: null,
+          y: null,
+          rotate,
+          positionItem: false,
+        },
+        isBlocked: false,
+      }
+      addNote({ ...payload })
+    } else {
+      editNote({ id: noteState.note.id, note: text })
     }
-    addNote({ ...payload })
-    setNote('')
+
+    setText('')
     navigate(-1)
   }
 
+  if (!noteState) {
+    return null
+  }
+
   return (
-    <PopupBox title='Add note'>
+    <PopupBox title={noteState.title}>
       <Block gap='xxl' direction='column'>
         <div className={s.inputWrapper}>
           <CustomTextarea
             placeholder={'Type you note'}
-            value={note}
+            value={text}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void =>
-              setNote(e.target.value)
+              setText(e.target.value)
             }
           />
           {isError && (
@@ -54,7 +77,7 @@ export const EditNote = () => {
         </div>
         <Block justify='end' gap='lg'>
           <Button onClick={() => navigate(-1)}>Cancel</Button>
-          <Button onClick={submit}>Add note</Button>
+          <Button onClick={submit}>{noteState.title}</Button>
         </Block>
       </Block>
     </PopupBox>

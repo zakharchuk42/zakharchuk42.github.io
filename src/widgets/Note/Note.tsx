@@ -9,7 +9,7 @@ import { getImageUrl } from '../../helpers/utils/getImageUrl'
 export const Note: React.FC<NoteProps> = ({ item }) => {
   const { boolean: isHover, handleFalse, handleTrue } = useOpenState()
 
-  const caseFile = useNoteOptional(item)
+  const noteOptional = useNoteOptional(item)
 
   return (
     <div
@@ -17,7 +17,7 @@ export const Note: React.FC<NoteProps> = ({ item }) => {
       onMouseEnter={handleTrue}
       onMouseLeave={handleFalse}
     >
-      <OptionalPanel isHover={isHover} optionalPanel={caseFile} />
+      <OptionalPanel isHover={isHover} optionalPanel={noteOptional} />
       <>
         <img className={s.pin} src={getImageUrl('pin.png')} alt='pin' />
         <div className={s.note}>{item.note}</div>
