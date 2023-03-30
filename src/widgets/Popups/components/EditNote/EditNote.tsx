@@ -43,8 +43,8 @@ export const EditNote = () => {
           />
         </div>
         <Block justify='end' gap='lg'>
-          <Button onClick={submit}>Add note</Button>
           <Button onClick={() => navigate(-1)}>Cancel</Button>
+          <Button onClick={submit}>Add note</Button>
         </Block>
       </Block>
     </PopupBox>
