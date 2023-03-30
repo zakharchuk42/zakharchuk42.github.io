@@ -25,7 +25,7 @@ export const EnterName = () => {
 
   return (
     <PopupBox title='How can I call you?'>
-      <Block gap='xxl' direction='column'>
+      <Block direction='column'>
         <div className={s.inputWrapper}>
           <CustomInput
             placeholder={'Enter you name, please'}

@@ -1,0 +1,11 @@
+.customTextarea {
+  width: 100%;
+  resize: none;
+  height: 100px;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-red);
+  color: var(--color-white);
+  font-size: 16px;
+}

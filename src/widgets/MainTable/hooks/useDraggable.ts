@@ -1,3 +1,4 @@
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
 import { useActions } from '../../../helpers/hooks/useActions'
 import { CaseFilesTypes } from '../../../store/slices/dataSlice'
@@ -8,7 +9,16 @@ type DraggableType = (
   setFile: (file: CaseFilesTypes | null) => void
 ) => {
   onDragStart: (e: any, isBlocked: boolean) => void
-  onDragEnd: (e: any, file: CaseFilesTypes | NoteType, action: any) => void
+  onDragEnd: (
+    e: any,
+    file: CaseFilesTypes | NoteType,
+    action:
+      | ActionCreatorWithPayload<any, 'Notes/moveNoteArrountTable'>
+      | ActionCreatorWithPayload<
+          CaseFilesTypes,
+          'Case Files/moveFileArroundTable'
+        >
+  ) => void
   onDrop: (e: any) => void
 }
 
@@ -50,6 +60,7 @@ export const useDraggable: DraggableType = (dropFile, setFile) => {
     const payload = {
       ...item,
       position: {
+        ...item.position,
         x: e.pageX - shift!.shiftX,
         y: e.pageY - shift!.shiftY,
         positionItem: true,

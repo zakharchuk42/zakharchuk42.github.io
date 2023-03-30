@@ -13,6 +13,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      autoFocus={true}
     />
   )
 }
