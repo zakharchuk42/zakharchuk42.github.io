@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { OptionalPanelProps } from './types'
 import s from './OptionalPanel.module.scss'
-import { Block } from '../../../Ui/Block/Block'
+import { Block } from '../../Ui/Block/Block'
 
 export const OptionalPanel: React.FC<OptionalPanelProps> = ({
   isHover,

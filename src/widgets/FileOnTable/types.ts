@@ -1,5 +1,5 @@
 import { CaseFilesTypes } from '../../store/slices/dataSlice'
 
-export interface ItemOnTableProps {
+export interface FileOnTableProps {
   file: CaseFilesTypes
 }

@@ -4,9 +4,9 @@ import { ROUTES } from '../../../../helpers/constants/allRoutes'
 import { useActions } from '../../../../helpers/hooks/useActions'
 import { useLocalStorage } from '../../../../helpers/hooks/useLocalStorage'
 import { Block } from '../../../../Ui/Block/Block'
+import { PopupBox } from '../../../../Ui/PopupBox/PopupBox'
 import { Button } from '../../../../Ui/Button/Button'
 import { CustomInput } from '../../../../Ui/CustomInput/CustomInput'
-import { Typography } from '../../../../Ui/Typography/Typography'
 
 import s from './EnterName.module.scss'
 
@@ -24,11 +24,8 @@ export const EnterName = () => {
   }
 
   return (
-    <div className={s.enterName} onClick={(e) => e.stopPropagation()}>
-      <Block gap='lg' direction='column'>
-        <Typography font='subtitle' color='grey'>
-          How can I call you?
-        </Typography>
+    <PopupBox title='How can I call you?'>
+      <Block gap='xxl' direction='column'>
         <div className={s.inputWrapper}>
           <CustomInput
             placeholder={'Enter you name, please'}
@@ -42,6 +39,6 @@ export const EnterName = () => {
           <Button onClick={submitName}>Enter Name</Button>
         </Block>
       </Block>
-    </div>
+    </PopupBox>
   )
 }

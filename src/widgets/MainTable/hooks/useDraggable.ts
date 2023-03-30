@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useActions } from '../../../helpers/hooks/useActions'
 import { CaseFilesTypes } from '../../../store/slices/dataSlice'
+import { NoteType } from '../../../store/slices/notesSlice'
 
 type DraggableType = (
   file: CaseFilesTypes | null | undefined,
   setFile: (file: CaseFilesTypes | null) => void
 ) => {
-  onDragStart: (e: any, file: CaseFilesTypes) => void
-  onDragEnd: (e: any, file: CaseFilesTypes) => void
+  onDragStart: (e: any, isBlocked: boolean) => void
+  onDragEnd: (e: any, file: CaseFilesTypes | NoteType, action: any) => void
   onDrop: (e: any) => void
 }
 
@@ -16,40 +17,48 @@ type ShiftTye = {
   shiftY: number
 }
 
-export const useDraggable: DraggableType = (file, setFile) => {
-  const { moveArroundTable, addFileOnTable } = useActions()
+export const useDraggable: DraggableType = (dropFile, setFile) => {
+  const { addFileOnTable } = useActions()
 
   const [shift, setShift] = useState<ShiftTye | null>(null)
 
-  const onDragStart = (e: any, file: CaseFilesTypes) => {
-    if (file.isBlocked) return
+  const onDrop = (e: any) => {
+    if (dropFile?.id) {
+      const payload = {
+        ...dropFile,
+        position: {
+          x: e.pageX - dropFile.position!.x,
+          y: e.pageY - dropFile.position!.y,
+          positionItem: true,
+        },
+      }
+
+      addFileOnTable({ ...payload, isOnTable: true })
+      setFile(null)
+    }
+  }
+
+  const onDragStart = (e: any, isBlocked: boolean) => {
+    if (isBlocked) return
     const shiftX = e.clientX - e.target.getBoundingClientRect().left
     const shiftY = e.clientY - e.target.getBoundingClientRect().top
     setShift({ shiftX, shiftY })
   }
 
-  const onDragEnd = (e: any, file: CaseFilesTypes) => {
-    if (file.isBlocked) return
+  const onDragEnd = (e: any, item: CaseFilesTypes | NoteType, action: any) => {
+    if (item.isBlocked) return
     const payload = {
-      ...file,
-      position: { x: e.pageX - shift!.shiftX, y: e.pageY - shift!.shiftY },
+      ...item,
+      position: {
+        x: e.pageX - shift!.shiftX,
+        y: e.pageY - shift!.shiftY,
+        positionItem: true,
+      },
     }
-    moveArroundTable({ ...payload })
-    setShift(null)
-  }
 
-  const onDrop = (e: any) => {
-    if (file?.id) {
-      const payload = {
-        ...file,
-        position: {
-          x: e.pageX - file.position!.x,
-          y: e.pageY - file.position!.y,
-        },
-      }
-      addFileOnTable({ ...payload, isOnTable: true })
-      setFile(null)
-    }
+    action({ ...payload })
+
+    setShift(null)
   }
 
   return { onDragStart, onDragEnd, onDrop }

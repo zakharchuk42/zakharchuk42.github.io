@@ -1,15 +1,15 @@
-import { ItemOnTableProps } from './types'
+import { FileOnTableProps } from './types'
 import { getImageUrl } from '../../helpers/utils/getImageUrl'
 import { useOpenState } from '../../helpers/hooks/useOpenState'
-import { OptionalPanel } from './OptionalPanel/OptionalPanel'
-import { useOptionalPanel } from './hooks/useOptionalPanel'
+import { OptionalPanel } from '../OptionalPanel/OptionalPanel'
+import { useFileOptional } from './hooks/useFileOptional'
 import { IoLockClosedOutline } from 'react-icons/io5'
-import s from './ItemOnTable.module.scss'
+import s from './FileOnTable.module.scss'
 
-export const ItemOnTable: React.FC<ItemOnTableProps> = ({ file }) => {
+export const FileOnTable: React.FC<FileOnTableProps> = ({ file }) => {
   const { boolean: isHover, handleFalse, handleTrue } = useOpenState()
 
-  const { caseFile } = useOptionalPanel(file)
+  const caseFile = useFileOptional(file)
 
   return (
     <div

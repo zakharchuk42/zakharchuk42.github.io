@@ -1,34 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export type NotesSliceType = {
+export type NoteType = {
   id: number
-  text: string
+  note: string
   isBlocked: boolean
   position: {
     x: number
     y: number
+    rotate: number
+    positionItem: boolean
   }
 }
 
-const initialState = {
-  notes: [
-    {
-      id: null,
-      text: '',
-      position: {
-        x: null,
-        y: null,
-      },
-      isBlocked: false,
-    },
-  ],
+export type NotesSliceType = {
+  notes: NoteType[]
+}
+
+const initialState: NotesSliceType = {
+  notes: [],
 }
 
 const notesSlice = createSlice({
   name: 'Notes',
   initialState,
   reducers: {
-    addNote: (state, action) => {},
+    addNote: (state, action) => {
+      state.notes.push(action.payload)
+    },
     dellNote: (state, action) => {},
     removeAllNotesFromTable: (state) => {
       state.notes = []
@@ -41,6 +39,11 @@ const notesSlice = createSlice({
     unblockAllNotesOnTable: (state) => {
       state.notes = state.notes.map((file) =>
         file.isBlocked ? { ...file, isBlocked: false } : file
+      )
+    },
+    moveNoteArrountTable: (state, actions) => {
+      state.notes = state.notes.map((file) =>
+        file.id === actions.payload.id ? actions.payload : file
       )
     },
   },

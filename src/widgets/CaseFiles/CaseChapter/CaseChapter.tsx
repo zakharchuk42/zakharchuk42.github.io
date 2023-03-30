@@ -20,6 +20,7 @@ export const CaseChapter: React.FC<CaseChapterProps> = ({
       position: {
         x: shiftX,
         y: shiftY,
+        positionItem: true,
       },
     })
   }

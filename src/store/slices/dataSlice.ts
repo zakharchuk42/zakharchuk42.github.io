@@ -10,6 +10,7 @@ export type CaseFilesTypes = {
   position?: {
     x: number
     y: number
+    positionItem: boolean
   }
 }
 
@@ -144,7 +145,7 @@ const dataSlice = createSlice({
         file.id === actions.payload.id ? { ...file, isOnTable: true } : file
       )
     },
-    moveArroundTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
+    moveFileArroundTable: (state, actions: PayloadAction<CaseFilesTypes>) => {
       state.filesOnTable = state.filesOnTable.map((file) =>
         file.id === actions.payload.id ? actions.payload : file
       )
