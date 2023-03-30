@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { ROUTES } from '../../helpers/constants/allRoutes'
 import { CloseRoute } from '../../helpers/hoc/CloseRoute'
 import PrivateRoute from '../../helpers/hoc/PrivateRoute'
+import { NotFound } from '../../pages/NotFound/NotFound'
 import { RegisterScreen } from '../../pages/Register/Register'
 import { UnsolvedScreen } from '../../pages/Unsolved/UnsolvedScreen'
 import { Block } from '../../Ui/Block/Block'
@@ -28,7 +29,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          {/* <Route path={ROUTES.NOT_FOUND} element={<NotFound />} /> */}
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Routes>
         {/* <ResponsiveRoutesPage /> */}
       </Block>
