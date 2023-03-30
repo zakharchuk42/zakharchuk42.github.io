@@ -7,6 +7,7 @@ import { useDraggable } from './hooks/useDraggable'
 import { ItemOnTable } from '../ItemOnTable/ItemOnTable'
 import { ITEM_TYPE } from '../../helpers/constants/itemType'
 import s from './MainTable.module.scss'
+import { SideInfo } from '../SideInfo/SideInfo'
 
 export const MainTable = () => {
   const { data, notes } = useTypedSelector((state) => state)
@@ -16,7 +17,6 @@ export const MainTable = () => {
   return (
     <>
       <CaseFiles setFile={setFile} />
-
       <div
         className={s.mainTable}
         onDragOver={(e) => e.preventDefault()}
@@ -26,6 +26,7 @@ export const MainTable = () => {
         <ItemOnTable items={notes.notes} type={ITEM_TYPE.NOTE} />
       </div>
       <FuncPanelOnTable />
+      <SideInfo />
     </>
   )
 }

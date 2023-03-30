@@ -31,7 +31,6 @@ export const App = () => {
           />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Routes>
-        {/* <ResponsiveRoutesPage /> */}
       </Block>
       <Popups />
     </>

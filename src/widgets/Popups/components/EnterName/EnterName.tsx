@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../../../helpers/constants/allRoutes'
-import { useActions } from '../../../../helpers/hooks/useActions'
 import { useLocalStorage } from '../../../../helpers/hooks/useLocalStorage'
 import { Block } from '../../../../Ui/Block/Block'
 import { PopupBox } from '../../../../Ui/PopupBox/PopupBox'
@@ -9,17 +8,16 @@ import { Button } from '../../../../Ui/Button/Button'
 import { CustomInput } from '../../../../Ui/CustomInput/CustomInput'
 
 import s from './EnterName.module.scss'
+import { STORAGE_KEY } from '../../../../helpers/constants/localStorageKey'
 
 export const EnterName = () => {
   const [name, setName] = useState<string>('')
-  const { logIn } = useActions()
   const navigate = useNavigate()
-  const [value, setValue] = useLocalStorage('playerName', '')
+  const { setValue } = useLocalStorage(STORAGE_KEY.NAME)
 
   const submitName = () => {
     setValue(name)
     setName('')
-    logIn({ name })
     navigate(ROUTES.UNSOLVED)
   }
 
