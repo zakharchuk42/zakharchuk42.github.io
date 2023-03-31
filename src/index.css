@@ -83,10 +83,10 @@ ol {
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 20px;
 }
 
 
 ::-webkit-scrollbar-thumb {
-  border-right: 4px solid var(--color-red);
+  border-left: 4px solid var(--color-red);
 }

@@ -4,13 +4,21 @@
   height: 100%;
   width: 420px;
   z-index: 10;
-  background: var(--color-black);
   transition: all 0.3s ease;
-  padding: 0 var(--p-xxl);
+}
+
+.body {
+  position: relative;
+  overflow-y: scroll;
+  height: 100%;
+  background: var(--color-black);
+  box-shadow: var(--shadow);
+  padding: 0 var(--p-lg) 0 var(--p-xxl);
+  z-index: 3;
 }
 
 .drawerLeft {
-  transform: translateX(-96%);
+  transform: translateX(-100%);
   left: 0;
 }
 
@@ -19,7 +27,7 @@
 }
 
 .drawerRight {
-  transform: translateX(96%);
+  transform: translateX(100%);
   right: 0;
 }
 
@@ -29,6 +37,7 @@
 
 
 .drawerButton {
+  z-index: 2;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -37,6 +46,7 @@
   width: 70px;
   height: 70px;
   background: var(--color-black);
+  box-shadow: var(--shadow);
 
   svg {
     transition: all 0.3s ease;
@@ -75,7 +85,7 @@
 .drawerButtonRight {
   border-radius: 0 0 0 20px;
   right: left;
-  transform: translate(-140%, 0);
+  transform: translate(-90%, 0);
   
   svg {
     transition: all 0.3s ease;
@@ -94,4 +104,33 @@
       transform: rotate(180deg) scale(1.2);
     }
   }
+}
+
+.label {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 50px;
+  height: 130px;
+  background: #feea8f;
+}
+
+.labelText {
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+.labelLeft {
+  border-radius: 0 0 20px 0;
+  right: 0;
+  transform: translate(90%, 70px);
+}
+
+.labelRight {
+  border-radius: 0 0 0 20px;
+  left: 0;
+  transform: translate(-90%, 70px);
 }

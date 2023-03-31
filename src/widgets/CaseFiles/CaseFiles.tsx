@@ -27,7 +27,7 @@ export const CaseFiles: React.FC<CaseFilesProps> = ({ setFile }) => {
   ]
 
   return (
-    <Drawer left>
+    <Drawer left label='Case files'>
       <div className={s.caseFiles}>
         <Block justify='between'>
           <Typography font='subtitle' color='white'>

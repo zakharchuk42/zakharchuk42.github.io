@@ -7,7 +7,7 @@ import s from './SideInfo.module.scss'
 
 export const SideInfo = () => {
   return (
-    <Drawer right>
+    <Drawer right label='Information'>
       <div className={s.sideInfo}>
         <Header />
         <Divider />

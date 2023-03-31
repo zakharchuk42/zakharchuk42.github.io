@@ -5,7 +5,12 @@ import clsx from 'clsx'
 import { useOpenState } from '../../helpers/hooks/useOpenState'
 import { iconStyle } from '../../helpers/utils/iconStyle'
 
-export const Drawer: React.FC<DrawerProps> = ({ children, left, right }) => {
+export const Drawer: React.FC<DrawerProps> = ({
+  children,
+  left,
+  right,
+  label,
+}) => {
   const { boolean: leftOpen, handleToggle: leftToggle } = useOpenState()
   const { boolean: rightOpen, handleToggle: rightToggle } = useOpenState()
 
@@ -23,6 +28,11 @@ export const Drawer: React.FC<DrawerProps> = ({ children, left, right }) => {
     [s.drawerButtonRightOpen]: rightOpen,
   })
 
+  const labelClass = clsx(s.label, {
+    [s.labelLeft]: left,
+    [s.labelRight]: right,
+  })
+
   const onClick = left ? leftToggle : rightToggle
 
   return (
@@ -30,7 +40,10 @@ export const Drawer: React.FC<DrawerProps> = ({ children, left, right }) => {
       <div className={buttonClass} onClick={onClick}>
         <IoChevronBack {...iconStyle()} />
       </div>
-      {children}
+      <div className={labelClass}>
+        <div className={s.labelText}>{label}</div>
+      </div>
+      <div className={s.body}>{children}</div>
     </div>
   )
 }
