@@ -41,11 +41,11 @@ export const CaseFiles: React.FC<CaseFilesProps> = ({ setFile }) => {
           return (
             <React.Fragment key={chapter}>
               <Block direction='column'>
-                <Block justify='between' align='center'>
+                <Block gap='xl' align='center'>
+                  {icons[idx]}
                   <Typography color='white' font='subtitle'>
                     {chapter}
                   </Typography>
-                  {icons[idx]}
                 </Block>
                 <CaseChapter chapterFiles={chapterFiles} setFile={setFile} />
               </Block>

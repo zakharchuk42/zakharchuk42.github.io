@@ -1,0 +1,18 @@
+.guideWrapper {
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+.guideBody {
+  display: flex;
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+.chapter {
+  padding-bottom: var(--p-xl);
+}
+
+.span {
+  color: var(--color-red);
+}

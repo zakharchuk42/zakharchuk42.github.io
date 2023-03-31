@@ -7,4 +7,7 @@ export const POPUPS = {
   CASE_FILE: 'caseFile',
   EDIT_NOTE: 'editNote',
   NOTE_POPUP: 'notePopup',
+  HOW_TO_PLAY: 'howToPlay',
+  WHO_KILLED: 'whoKilled',
+  HINT: 'hint',
 }

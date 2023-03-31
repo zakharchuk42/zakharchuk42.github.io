@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { userReducer } from './slices/userSlice'
 import { dataReducer } from './slices/dataSlice'
 import { notesReducer } from './slices/notesSlice'
+import { guideReducer } from './slices/guideSlice'
 
 export const makeStore = () => {
   return configureStore({
@@ -9,6 +10,7 @@ export const makeStore = () => {
       user: userReducer,
       data: dataReducer,
       notes: notesReducer,
+      guide: guideReducer,
     },
   })
 }

@@ -1,5 +1,5 @@
 export interface TypographyProps {
-  children: string
+  children: React.ReactNode
   btn?: boolean
   color?: string
   font?: string

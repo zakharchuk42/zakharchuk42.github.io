@@ -7,12 +7,14 @@ import { Block } from '../../Ui/Block/Block'
 import { CaseFile } from './components/CaseFile/CaseFile'
 import { EditNote } from './components/EditNote/EditNote'
 import { NotePopup } from './components/NotePopup/NotePopup'
+import { HowToPlay } from './components/HowToPlay/HowToPlay'
 
 const popups = {
   [POPUPS.ENTER_NAME]: EnterName,
   [POPUPS.CASE_FILE]: CaseFile,
   [POPUPS.EDIT_NOTE]: EditNote,
   [POPUPS.NOTE_POPUP]: NotePopup,
+  [POPUPS.HOW_TO_PLAY]: HowToPlay,
 }
 
 const Popups = () => {
