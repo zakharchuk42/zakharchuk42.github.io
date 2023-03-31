@@ -22,14 +22,14 @@ const fontText: MapperTextType = {
 
 export const Typography: React.FC<TypographyProps> = ({
   children,
-  color = 'white',
+  color,
   font = 'body',
   uppercase,
   maxWidth,
 }) => {
   const className = clsx(
     fontText[font],
-    colorText[color],
+    color && colorText[color],
     uppercase && s.uppercase
   )
   return (

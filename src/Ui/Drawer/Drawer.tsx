@@ -3,6 +3,7 @@ import { DrawerProps } from './types'
 import { IoChevronBack } from 'react-icons/io5'
 import clsx from 'clsx'
 import { useOpenState } from '../../helpers/hooks/useOpenState'
+import { iconStyle } from '../../helpers/utils/iconStyle'
 
 export const Drawer: React.FC<DrawerProps> = ({ children, left, right }) => {
   const { boolean: leftOpen, handleToggle: leftToggle } = useOpenState()
@@ -27,7 +28,7 @@ export const Drawer: React.FC<DrawerProps> = ({ children, left, right }) => {
   return (
     <div className={drawerClass}>
       <div className={buttonClass} onClick={onClick}>
-        <IoChevronBack size='36px' color='#DC143C' />
+        <IoChevronBack {...iconStyle()} />
       </div>
       {children}
     </div>

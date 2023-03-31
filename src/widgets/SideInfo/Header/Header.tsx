@@ -6,6 +6,7 @@ import { ROUTES } from '../../../helpers/constants/allRoutes'
 import { useNavigate } from 'react-router-dom'
 import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage'
 import { STORAGE_KEY } from '../../../helpers/constants/localStorageKey'
+import { iconStyle } from '../../../helpers/utils/iconStyle'
 
 export const Header = () => {
   const { name } = useTypedSelector((s) => s.user)
@@ -22,13 +23,8 @@ export const Header = () => {
 
   return (
     <Block justify='between'>
-      <Typography font='subtitle' color='red'>{`Hi, ${name} !`}</Typography>
-      <IoExitOutline
-        title={'Exit'}
-        size='34px'
-        color='#DC143C'
-        onClick={logout}
-      />
+      <Typography font='subtitle' color='white'>{`Hi, ${name} !`}</Typography>
+      <IoExitOutline onClick={logout} {...iconStyle('Exit')} />
     </Block>
   )
 }

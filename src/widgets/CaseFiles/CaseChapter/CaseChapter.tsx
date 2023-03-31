@@ -26,7 +26,7 @@ export const CaseChapter: React.FC<CaseChapterProps> = ({
   }
 
   return (
-    <Block justify='between' width='100%'>
+    <div className={s.block}>
       {chapterFiles.map((file) => {
         const caseImage = getImageUrl(file.imgPath)
         return (
@@ -51,6 +51,6 @@ export const CaseChapter: React.FC<CaseChapterProps> = ({
           </div>
         )
       })}
-    </Block>
+    </div>
   )
 }

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { POPUPS } from '../../helpers/constants/allPopups'
 import { useActions } from '../../helpers/hooks/useActions'
 import { callPopup } from '../../helpers/utils/callPopup'
+import { iconStyle } from '../../helpers/utils/iconStyle'
 import s from './FuncPanelOnTable.module.scss'
 
 export const FuncPanelOnTable = () => {
@@ -39,35 +40,18 @@ export const FuncPanelOnTable = () => {
 
   return (
     <div className={s.funcPanelOnTable}>
-      <IoCreateOutline
-        title={'Add note'}
-        size='34px'
-        color='#DC143C'
-        onClick={editNote}
-      />
+      <IoCreateOutline {...iconStyle('Add note')} onClick={editNote} />
       <IoTrashOutline
-        title={'Remove all files'}
-        size='34px'
-        color='#DC143C'
+        {...iconStyle('Remove all files')}
         onClick={removeAllFiles}
       />
       <IoLockClosedOutline
-        title={'Block all files'}
-        size='32px'
-        color='#DC143C'
+        {...iconStyle('Block all files')}
         onClick={blockAll}
       />
       <IoLockOpenOutline
-        title={'Unlock all files'}
-        size='32px'
-        color='#DC143C'
+        {...iconStyle('Unlock all files')}
         onClick={unblockAll}
-      />
-      <IoInformationSharp
-        title={'Open instruction'}
-        size='38px'
-        color='#DC143C'
-        onClick={() => console.log('Open instr')}
       />
     </div>
   )

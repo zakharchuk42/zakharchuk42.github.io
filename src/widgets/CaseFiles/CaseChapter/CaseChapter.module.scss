@@ -16,6 +16,14 @@
   }
 }
 
+.block {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 10px;
+  padding-bottom: var(--p-xl) ;
+}
+
 .disabledBlock {
   pointer-events: none;
   opacity: 0.2;

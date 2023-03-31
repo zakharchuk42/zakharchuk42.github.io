@@ -11,6 +11,7 @@ import { Block } from '../../../../Ui/Block/Block'
 import { useOpenState } from '../../../../helpers/hooks/useOpenState'
 import { useActions } from '../../../../helpers/hooks/useActions'
 import { CaseFilesTypes } from '../../../../store/slices/dataSlice'
+import { iconStyle } from '../../../../helpers/utils/iconStyle'
 
 export const CaseFile = () => {
   const { state } = useLocation()
@@ -59,35 +60,16 @@ export const CaseFile = () => {
         <Block direction='column' align='center' gap='xxl'>
           {caseFile?.isOnTable ? (
             <IoTrashOutline
-              title={'Remove from table'}
-              size='36px'
-              color='#DC143C'
+              {...iconStyle('Remove from table')}
               onClick={removeFromTable}
             />
           ) : (
-            <IoAddOutline
-              title={'Add on table'}
-              size='36px'
-              color='#DC143C'
-              onClick={addOnTable}
-            />
+            <IoAddOutline {...iconStyle('Add on table')} onClick={addOnTable} />
           )}
-          <IoExpandOutline
-            title={'Zoom in'}
-            size='28px'
-            color='#DC143C'
-            onClick={zoomIn}
-          />
-          <IoContractOutline
-            title={'Zoom out'}
-            size='28px'
-            color='#DC143C'
-            onClick={zoomOut}
-          />
+          <IoExpandOutline {...iconStyle('Zoom in')} onClick={zoomIn} />
+          <IoContractOutline {...iconStyle('Zoom out')} onClick={zoomOut} />
           <IoCloseOutline
-            title={'Close popup'}
-            size='36px'
-            color='#DC143C'
+            {...iconStyle('Close popup')}
             onClick={() => navigate(-1)}
           />
         </Block>

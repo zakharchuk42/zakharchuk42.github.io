@@ -1,0 +1,19 @@
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-lg);
+  cursor: pointer;
+  color: var(--color-white);
+  transition: all .3s ease;
+
+  svg {
+    transition: all .3s ease;
+  }
+
+  &:hover {
+    color: var(--color-red);
+    svg {
+      scale: 1.2;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { OptionalPanel } from '../OptionalPanel/OptionalPanel'
 import { useFileOptional } from './hooks/useFileOptional'
 import { IoLockClosedOutline } from 'react-icons/io5'
 import s from './File.module.scss'
+import { iconStyle } from '../../helpers/utils/iconStyle'
 
 export const File: React.FC<FileProps> = ({ item }) => {
   const { boolean: isHover, handleFalse, handleTrue } = useOpenState()
@@ -22,9 +23,7 @@ export const File: React.FC<FileProps> = ({ item }) => {
       {item.isBlocked && (
         <div className={s.button}>
           <IoLockClosedOutline
-            title={'File is block!'}
-            size='16px'
-            color='#DC143C'
+            {...iconStyle('File is block!', '#fff', '16px')}
           />
         </div>
       )}

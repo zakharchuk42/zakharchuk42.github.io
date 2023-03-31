@@ -5,6 +5,7 @@ import { useOpenState } from '../../helpers/hooks/useOpenState'
 import { useNoteOptional } from './hooks/useNoteOptional'
 import { IoLockClosedOutline } from 'react-icons/io5'
 import { getImageUrl } from '../../helpers/utils/getImageUrl'
+import { iconStyle } from '../../helpers/utils/iconStyle'
 
 export const Note: React.FC<NoteProps> = ({ item }) => {
   const { boolean: isHover, handleFalse, handleTrue } = useOpenState()
@@ -25,9 +26,7 @@ export const Note: React.FC<NoteProps> = ({ item }) => {
       {item.isBlocked && (
         <div className={s.button}>
           <IoLockClosedOutline
-            title={'File is block!'}
-            size='16px'
-            color='#DC143C'
+            {...iconStyle('File is block!', '#fff', '16px')}
           />
         </div>
       )}
