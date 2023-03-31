@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useActions } from '../../../../helpers/hooks/useActions'
+import { useCustomEvent } from '../../../../helpers/hooks/useCustomEvent'
 import { NoteType } from '../../../../store/slices/notesSlice'
 import { Block } from '../../../../Ui/Block/Block'
 import { Button } from '../../../../Ui/Button/Button'
@@ -28,7 +29,9 @@ export const EditNote = () => {
   const [text, setText] = useState<string>('')
   const [isError, setIsError] = useState<boolean>(false)
 
-  const submit = () => {
+  const cancel = useCustomEvent(() => navigate(-1))
+
+  const submit = useCustomEvent(() => {
     if (text.length < 5) {
       setIsError(true)
       return
@@ -54,7 +57,7 @@ export const EditNote = () => {
 
     setText('')
     navigate(-1)
-  }
+  })
 
   if (!noteState) {
     return null
@@ -76,7 +79,7 @@ export const EditNote = () => {
           )}
         </div>
         <Block justify='end' gap='lg'>
-          <Button onClick={() => navigate(-1)}>Cancel</Button>
+          <Button onClick={cancel}>Cancel</Button>
           <Button onClick={submit}>{noteState.title}</Button>
         </Block>
       </Block>

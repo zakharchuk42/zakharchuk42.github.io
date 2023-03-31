@@ -9,17 +9,18 @@ import { CustomInput } from '../../../../Ui/CustomInput/CustomInput'
 
 import s from './EnterName.module.scss'
 import { STORAGE_KEY } from '../../../../helpers/constants/localStorageKey'
+import { useCustomEvent } from '../../../../helpers/hooks/useCustomEvent'
 
 export const EnterName = () => {
   const [name, setName] = useState<string>('')
   const navigate = useNavigate()
   const { setValue } = useLocalStorage(STORAGE_KEY.NAME)
 
-  const submitName = () => {
+  const submitName = useCustomEvent(() => {
     setValue(name)
     setName('')
     navigate(ROUTES.UNSOLVED)
-  }
+  })
 
   return (
     <PopupBox title='How can I call you?'>
