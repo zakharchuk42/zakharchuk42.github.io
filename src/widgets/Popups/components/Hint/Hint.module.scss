@@ -1,0 +1,27 @@
+.slideButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .3s ease;
+  color: var(--color-white);
+
+  &:hover {
+    color: var(--color-red);
+    svg {
+      scale: 1.2; 
+    }
+  }
+}
+
+.slideButtonRight {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.slideButtonDisabled {
+  opacity: 0.2;
+  pointer-events: none;
+}

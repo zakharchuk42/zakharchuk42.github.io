@@ -15,6 +15,7 @@ export const Body = () => {
   const navigate = useNavigate()
 
   const openHowToPlay = () => navigate(callPopup(POPUPS.HOW_TO_PLAY))
+  const openHint = () => navigate(callPopup(POPUPS.HINT))
   return (
     <Block grow direction='column' gap='xl'>
       <Typography font='subtitle' color='white'>
@@ -33,7 +34,7 @@ export const Body = () => {
         </div>
       </Block>
       <Block>
-        <div className={s.buttonWrapper}>
+        <div className={s.buttonWrapper} onClick={openHint}>
           <IoBulbOutline {...iconStyle('I want!')} />
           <Typography>I want a hint</Typography>
         </div>

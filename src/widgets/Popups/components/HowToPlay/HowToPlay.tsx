@@ -7,7 +7,7 @@ import { Typography } from '../../../../Ui/Typography/Typography'
 import s from './HowToPlay.module.scss'
 
 export const HowToPlay = () => {
-  const { guide } = useTypedSelector((s) => s.guide)
+  const { guide } = useTypedSelector((s) => s.helperText)
   const navigate = useNavigate()
 
   return (

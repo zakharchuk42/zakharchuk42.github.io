@@ -1,5 +1,5 @@
 .box {
-  width: 40%;
+  width: 50%;
   padding: var(--p-xxl);
   background: var(--color-black);
   border-radius: var(--border-radius);
@@ -8,5 +8,6 @@
   max-height: 85vh;
   display: flex;
   flex-direction: column;
+  min-height: 30vh;
   gap: var(--gap-xxl);
 }

@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export type GuideType = {
+export type helperTextType = {
   guide: {
     title: string
     text: string[]
   }[]
+  hint: any
 }
 
-const initialState: GuideType = {
+const initialState: helperTextType = {
   guide: [
     {
       title: 'Get Your First Objective',
@@ -60,12 +61,17 @@ const initialState: GuideType = {
       ],
     },
   ],
+  hint: [
+    'Lawyers are not always very helpful. That is the case here too.',
+    "Cameron Daly doesn't have much to offer either.",
+    "Only one person saw the killer. You'll want to listen to everything he had to say.",
+  ],
 }
 
-const guideSlice = createSlice({
-  name: 'Guide',
+const helperTextSlice = createSlice({
+  name: 'Helper Text',
   initialState,
   reducers: {},
 })
 
-export const guideReducer = guideSlice.reducer
+export const helperTextReducer = helperTextSlice.reducer
