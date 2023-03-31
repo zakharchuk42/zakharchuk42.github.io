@@ -1,4 +1,8 @@
-import { IoHelpOutline, IoBulbOutline } from 'react-icons/io5'
+import {
+  IoHelpOutline,
+  IoBulbOutline,
+  IoCheckmarkDoneOutline,
+} from 'react-icons/io5'
 import { iconStyle } from '../../../helpers/utils/iconStyle'
 import { Block } from '../../../Ui/Block/Block'
 import { Typography } from '../../../Ui/Typography/Typography'
@@ -18,7 +22,7 @@ export const Body = () => {
       </Block>
       <Block>
         <div className={s.buttonWrapper}>
-          <IoHelpOutline {...iconStyle('I know!')} />
+          <IoCheckmarkDoneOutline {...iconStyle('I know!')} />
           <Typography>I know who killed!</Typography>
         </div>
       </Block>

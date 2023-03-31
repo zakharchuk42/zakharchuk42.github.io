@@ -1,5 +1,11 @@
 import React from 'react'
-import { IoFingerPrintOutline, IoFolderOpenOutline } from 'react-icons/io5'
+import {
+  IoFingerPrintOutline,
+  IoFolderOpenOutline,
+  IoPersonOutline,
+  IoSearchOutline,
+  IoClipboardOutline,
+} from 'react-icons/io5'
 import { useTypedSelector } from '../../helpers/hooks/useTypedSelector'
 import { iconStyle } from '../../helpers/utils/iconStyle'
 import { Block } from '../../Ui/Block/Block'
@@ -13,6 +19,13 @@ import { CaseFilesProps } from './types'
 export const CaseFiles: React.FC<CaseFilesProps> = ({ setFile }) => {
   const caseFiles = useTypedSelector((s) => s.data)
 
+  const icons = [
+    <IoPersonOutline {...iconStyle('Suspects', '#fff')} />,
+    <IoFingerPrintOutline {...iconStyle('Suspects', '#fff')} />,
+    <IoClipboardOutline {...iconStyle('Suspects', '#fff')} />,
+    <IoSearchOutline {...iconStyle('Suspects', '#fff')} />,
+  ]
+
   return (
     <Drawer left>
       <div className={s.caseFiles}>
@@ -23,7 +36,7 @@ export const CaseFiles: React.FC<CaseFilesProps> = ({ setFile }) => {
           <IoFolderOpenOutline {...iconStyle('Case files', '#fff')} />
         </Block>
         <Divider />
-        {caseFiles.chapter.map((chapter: string) => {
+        {caseFiles.chapter.map((chapter: string, idx: number) => {
           const chapterFiles = caseFiles.caseFiles[chapter]
           return (
             <React.Fragment key={chapter}>
@@ -32,7 +45,7 @@ export const CaseFiles: React.FC<CaseFilesProps> = ({ setFile }) => {
                   <Typography color='white' font='subtitle'>
                     {chapter}
                   </Typography>
-                  <IoFingerPrintOutline {...iconStyle('Suspects', '#fff')} />
+                  {icons[idx]}
                 </Block>
                 <CaseChapter chapterFiles={chapterFiles} setFile={setFile} />
               </Block>

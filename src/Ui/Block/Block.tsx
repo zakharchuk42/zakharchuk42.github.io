@@ -12,9 +12,11 @@ export const Block: React.FC<BlockProps> = ({
   width,
   height,
   grow,
+  style,
 }) => {
   const className = clsx(
     s.block,
+    style,
     directionFlex[direction],
     gap && gapSpace[gap],
     align && alignItems[align],

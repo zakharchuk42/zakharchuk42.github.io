@@ -12,4 +12,5 @@ export interface BlockProps {
   width?: string
   height?: boolean
   grow?: boolean
+  style?: string
 }

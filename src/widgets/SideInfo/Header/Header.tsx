@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage'
 import { STORAGE_KEY } from '../../../helpers/constants/localStorageKey'
 import { iconStyle } from '../../../helpers/utils/iconStyle'
+import s from './Header.module.scss'
 
 export const Header = () => {
   const { name } = useTypedSelector((s) => s.user)
@@ -22,7 +23,7 @@ export const Header = () => {
   }
 
   return (
-    <Block justify='between'>
+    <Block style={s.headerButton} justify='between'>
       <Typography font='subtitle' color='white'>{`Hi, ${name} !`}</Typography>
       <IoExitOutline onClick={logout} {...iconStyle('Exit')} />
     </Block>
