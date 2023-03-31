@@ -17,7 +17,6 @@ export const Hint = () => {
   const [counter, setCounter] = useState(0)
 
   const prevCounter = () => counter === 0 || setCounter(counter - 1)
-
   const nextCounter = () => counter === 2 || setCounter(counter + 1)
 
   return (

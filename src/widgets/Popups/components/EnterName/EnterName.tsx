@@ -24,19 +24,17 @@ export const EnterName = () => {
 
   return (
     <PopupBox title='How can I call you?'>
-      <Block direction='column'>
-        <div className={s.inputWrapper}>
-          <CustomInput
-            placeholder={'Enter you name, please'}
-            value={name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
-              setName(e.target.value)
-            }
-          />
-        </div>
-        <Block justify='end'>
-          <Button onClick={submitName}>Enter Name</Button>
-        </Block>
+      <Block style={s.inputWrapper} grow direction='column'>
+        <CustomInput
+          placeholder={'Enter you name, please'}
+          value={name}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+            setName(e.target.value)
+          }
+        />
+      </Block>
+      <Block justify='end'>
+        <Button onClick={submitName}>Enter Name</Button>
       </Block>
     </PopupBox>
   )

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTypedSelector } from '../../../../helpers/hooks/useTypedSelector'
 import { Block } from '../../../../Ui/Block/Block'
@@ -15,16 +16,20 @@ export const HowToPlay = () => {
       <Block style={s.guideBody} direction='column'>
         {guide.map((item, idx) => {
           return (
-            <Block style={s.chapter} direction='column'>
-              <Typography font='subtitle' color='white'>
-                <span className={s.span}>{`${idx + 1}.`}</span> {item.title}
-              </Typography>
-              <Block gap='xl' direction='column'>
-                {item.text.map((paragraph) => (
-                  <Typography color='white'>{paragraph}</Typography>
-                ))}
+            <React.Fragment key={idx}>
+              <Block style={s.chapter} direction='column'>
+                <Typography font='subtitle' color='white'>
+                  <span className={s.span}>{`${idx + 1}.`}</span> {item.title}
+                </Typography>
+                <Block gap='xl' direction='column'>
+                  {item.text.map((paragraph, idx) => (
+                    <Typography key={idx} color='white'>
+                      {paragraph}
+                    </Typography>
+                  ))}
+                </Block>
               </Block>
-            </Block>
+            </React.Fragment>
           )
         })}
       </Block>

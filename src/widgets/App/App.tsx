@@ -3,8 +3,8 @@ import { ROUTES } from '../../helpers/constants/allRoutes'
 import { CloseRoute } from '../../helpers/hoc/CloseRoute'
 import PrivateRoute from '../../helpers/hoc/PrivateRoute'
 import { NotFound } from '../../pages/404/404'
-import { RegisterScreen } from '../../pages/Register/Register'
-import { UnsolvedScreen } from '../../pages/Unsolved/UnsolvedScreen'
+import { Register } from '../../pages/Register/Register'
+import { Unsolved } from '../../pages/Unsolved/Unsolved'
 import { Block } from '../../Ui/Block/Block'
 import Popups from '../Popups/Popups'
 
@@ -17,7 +17,7 @@ export const App = () => {
             path={ROUTES.REGISTER}
             element={
               <CloseRoute>
-                <RegisterScreen />
+                <Register />
               </CloseRoute>
             }
           />
@@ -25,7 +25,7 @@ export const App = () => {
             path={ROUTES.UNSOLVED}
             element={
               <PrivateRoute>
-                <UnsolvedScreen />
+                <Unsolved />
               </PrivateRoute>
             }
           />
