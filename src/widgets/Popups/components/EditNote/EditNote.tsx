@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useActions } from '../../../../helpers/hooks/useActions'
 import { useCustomEvent } from '../../../../helpers/hooks/useCustomEvent'
@@ -8,7 +8,6 @@ import { Button } from '../../../../Ui/Button/Button'
 import { CustomTextarea } from '../../../../Ui/CustomTextarea/CustomTextarea'
 import { PopupBox } from '../../../../Ui/PopupBox/PopupBox'
 import { Typography } from '../../../../Ui/Typography/Typography'
-import s from './EditNote.module.scss'
 
 type NoteStateType = {
   note: NoteType
@@ -64,20 +63,24 @@ export const EditNote = () => {
   }
 
   return (
-    <PopupBox title={noteState.title}>
+    <PopupBox
+      title={
+        <Typography font='subtitle' color='white'>
+          {noteState.title}
+        </Typography>
+      }
+    >
       <Block gap='xxl' direction='column'>
-        <div className={s.inputWrapper}>
-          <CustomTextarea
-            placeholder={'Type you note'}
-            value={text}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void =>
-              setText(e.target.value)
-            }
-          />
-          {isError && (
-            <Typography font='small'>*type min 5 characters</Typography>
-          )}
-        </div>
+        <CustomTextarea
+          placeholder={'Type you note'}
+          value={text}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void =>
+            setText(e.target.value)
+          }
+        />
+        {isError && (
+          <Typography font='small'>*type min 5 characters</Typography>
+        )}
         <Block justify='end' gap='lg'>
           <Button onClick={cancel}>Cancel</Button>
           <Button onClick={submit}>{noteState.title}</Button>

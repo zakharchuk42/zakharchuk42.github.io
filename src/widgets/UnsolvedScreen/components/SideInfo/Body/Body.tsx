@@ -17,6 +17,7 @@ export const Body = () => {
 
   const openHowToPlay = () => navigate(callPopup(POPUPS.HOW_TO_PLAY))
   const openHint = () => navigate(callPopup(POPUPS.HINT))
+  const openQuiz = () => navigate(callPopup(POPUPS.QUIZ))
   return (
     <Block grow direction='column' gap='xl'>
       <Typography font='subtitle' color='white'>
@@ -29,7 +30,7 @@ export const Body = () => {
         </div>
       </Block>
       <Block>
-        <div className={s.buttonWrapper}>
+        <div className={s.buttonWrapper} onClick={openQuiz}>
           <IoCheckmarkDoneOutline {...iconStyle('I know!')} />
           <Typography>I know who killed!</Typography>
         </div>

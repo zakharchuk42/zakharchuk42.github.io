@@ -1,0 +1,13 @@
+.answearWrapper {
+  overflow-y: scroll;
+}
+
+.answear {
+  cursor: pointer;
+  color: var(--color-white);
+  transition: all .3s ease;
+
+  &:hover {
+    color: var(--color-red);
+  }
+}

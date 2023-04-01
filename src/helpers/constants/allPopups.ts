@@ -10,4 +10,5 @@ export const POPUPS = {
   HOW_TO_PLAY: 'howToPlay',
   WHO_KILLED: 'whoKilled',
   HINT: 'hint',
+  QUIZ: 'quiz',
 }

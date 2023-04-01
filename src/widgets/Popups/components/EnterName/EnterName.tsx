@@ -6,10 +6,9 @@ import { Block } from '../../../../Ui/Block/Block'
 import { PopupBox } from '../../../../Ui/PopupBox/PopupBox'
 import { Button } from '../../../../Ui/Button/Button'
 import { CustomInput } from '../../../../Ui/CustomInput/CustomInput'
-
-import s from './EnterName.module.scss'
 import { STORAGE_KEY } from '../../../../helpers/constants/localStorageKey'
 import { useCustomEvent } from '../../../../helpers/hooks/useCustomEvent'
+import { Typography } from '../../../../Ui/Typography/Typography'
 
 export const EnterName = () => {
   const [name, setName] = useState<string>('')
@@ -23,8 +22,14 @@ export const EnterName = () => {
   })
 
   return (
-    <PopupBox title='How can I call you?'>
-      <Block style={s.inputWrapper} grow direction='column'>
+    <PopupBox
+      title={
+        <Typography font='subtitle' color='white'>
+          How can I call you?
+        </Typography>
+      }
+    >
+      <Block grow direction='column'>
         <CustomInput
           placeholder={'Enter you name, please'}
           value={name}

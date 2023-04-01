@@ -13,6 +13,7 @@ export const Block: React.FC<BlockProps> = ({
   height,
   grow,
   style,
+  onClick,
 }) => {
   const className = clsx(
     s.block,
@@ -26,7 +27,11 @@ export const Block: React.FC<BlockProps> = ({
   )
 
   return (
-    <div className={className} style={width ? { width: `${width}` } : {}}>
+    <div
+      className={className}
+      style={width ? { width: `${width}` } : {}}
+      onClick={onClick}
+    >
       {children}
     </div>
   )

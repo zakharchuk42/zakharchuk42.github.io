@@ -16,33 +16,46 @@ export const Hint = () => {
 
   const [counter, setCounter] = useState(0)
 
-  const prevCounter = () => counter === 0 || setCounter(counter - 1)
-  const nextCounter = () => counter === 2 || setCounter(counter + 1)
+  const isPrev = counter === 0
+  const isNext = counter === hint.length - 1
+
+  const prevCounter = () => isPrev || setCounter(counter - 1)
+  const nextCounter = () => isNext || setCounter(counter + 1)
 
   return (
-    <PopupBox title={`Hint №${counter + 1}`}>
+    <PopupBox
+      title={
+        <Block justify='between'>
+          <Typography font='subtitle' color='white'>
+            {`Hint №${counter + 1}`}
+          </Typography>
+          <Block gap='xl'>
+            <div
+              className={clsx(s.slideButton, {
+                [s.slideButtonDisabled]: isPrev,
+              })}
+              onClick={prevCounter}
+            >
+              <IoChevronBack {...iconStyle()} />
+              <Typography font='small'>Prev</Typography>
+            </div>
+            <div
+              className={clsx(s.slideButton, s.slideButtonRight, {
+                [s.slideButtonDisabled]: isNext,
+              })}
+              onClick={nextCounter}
+            >
+              <IoChevronBack {...iconStyle()} />
+              <Typography font='small'>Next</Typography>
+            </div>
+          </Block>
+        </Block>
+      }
+    >
       <Block grow gap='xxl'>
-        <div
-          className={clsx(s.slideButton, {
-            [s.slideButtonDisabled]: counter === 0,
-          })}
-          onClick={prevCounter}
-        >
-          <IoChevronBack {...iconStyle()} />
-          <Typography font='small'>Prev</Typography>
-        </div>
-        <Block grow>
+        <Block grow align='center'>
           <Typography color='white'>{hint[counter]}</Typography>
         </Block>
-        <div
-          className={clsx(s.slideButton, s.slideButtonRight, {
-            [s.slideButtonDisabled]: counter === 2,
-          })}
-          onClick={nextCounter}
-        >
-          <IoChevronBack {...iconStyle()} />
-          <Typography font='small'>Next</Typography>
-        </div>
       </Block>
       <Block justify='end'>
         <Button onClick={() => navigate(-1)}>Close</Button>

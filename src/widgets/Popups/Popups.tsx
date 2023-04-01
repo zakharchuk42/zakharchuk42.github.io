@@ -9,6 +9,7 @@ import { EditNote } from './components/EditNote/EditNote'
 import { NotePopup } from './components/NotePopup/NotePopup'
 import { HowToPlay } from './components/HowToPlay/HowToPlay'
 import { Hint } from './components/Hint/Hint'
+import { Quiz } from './components/Quiz/Quiz'
 
 const popups = {
   [POPUPS.ENTER_NAME]: EnterName,
@@ -17,6 +18,7 @@ const popups = {
   [POPUPS.NOTE_POPUP]: NotePopup,
   [POPUPS.HOW_TO_PLAY]: HowToPlay,
   [POPUPS.HINT]: Hint,
+  [POPUPS.QUIZ]: Quiz,
 }
 
 const Popups = () => {

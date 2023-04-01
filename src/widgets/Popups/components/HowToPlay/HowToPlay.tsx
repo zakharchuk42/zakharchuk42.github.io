@@ -12,7 +12,13 @@ export const HowToPlay = () => {
   const navigate = useNavigate()
 
   return (
-    <PopupBox title='How to play?'>
+    <PopupBox
+      title={
+        <Typography font='subtitle' color='white'>
+          How to play?
+        </Typography>
+      }
+    >
       <Block style={s.guideBody} direction='column'>
         {guide.map((item, idx) => {
           return (

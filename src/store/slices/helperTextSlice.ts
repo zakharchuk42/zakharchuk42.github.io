@@ -5,7 +5,13 @@ export type helperTextType = {
     title: string
     text: string[]
   }[]
-  hint: any
+  hint: string[]
+  quiz: {
+    title: string
+    subtitle: string
+    answears: string[]
+    correct: string
+  }[]
 }
 
 const initialState: helperTextType = {
@@ -65,6 +71,68 @@ const initialState: helperTextType = {
     'Lawyers are not always very helpful. That is the case here too.',
     "Cameron Daly doesn't have much to offer either.",
     "Only one person saw the killer. You'll want to listen to everything he had to say.",
+  ],
+  quiz: [
+    {
+      title: 'Which of These Items is Needed to Solve The Case?',
+      subtitle: 'Which of These Items is Needed to Solve The Case?',
+      answears: [
+        'Newspaper Article',
+        'Picture of Lumberski Alive',
+        'Picture of Lumberski Dead',
+        '911 Call Transcript',
+        "Lawyer's Letter",
+        'Suspect Corkboard',
+      ],
+      correct: '911 Call Transcript',
+    },
+    {
+      title: 'The 911 Transcript? What About It?',
+      subtitle: 'Which line has the necessary clue?',
+      answears: [
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '13',
+        '14',
+        '15',
+        '16',
+        '17',
+        '18',
+        '19',
+        '20',
+        '21',
+      ],
+      correct: '18',
+    },
+    {
+      title: "Looks like you're on the right track detective...",
+      subtitle: 'Which Other Item Is Needed to Make Your Case?',
+      answears: [
+        'Newspaper Article',
+        'Picture of Lumberski Alive',
+        'Picture of Lumberski Dead',
+        "Lawyer's Letter",
+        'Suspect Corkboard',
+        'Picture of Stump',
+      ],
+      correct: 'Picture of Stump',
+    },
+    {
+      title: 'Who Is the Killer?',
+      subtitle: 'Who Whacked Luberski?',
+      answears: ['Sam Williams', 'Jerry Andersen', 'Martin Park'],
+      correct: 'Jerry Andersen',
+    },
   ],
 }
 

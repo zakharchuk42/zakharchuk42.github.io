@@ -3,6 +3,7 @@ import { ROUTES } from '../../helpers/constants/allRoutes'
 import { CloseRoute } from '../../helpers/hoc/CloseRoute'
 import PrivateRoute from '../../helpers/hoc/PrivateRoute'
 import { NotFound } from '../../pages/404/404'
+import { Quiz } from '../../pages/Quiz/Quiz'
 import { Register } from '../../pages/Register/Register'
 import { Unsolved } from '../../pages/Unsolved/Unsolved'
 import { Block } from '../../Ui/Block/Block'
@@ -26,6 +27,14 @@ export const App = () => {
             element={
               <PrivateRoute>
                 <Unsolved />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={ROUTES.QUIZ}
+            element={
+              <PrivateRoute>
+                <Quiz />
               </PrivateRoute>
             }
           />

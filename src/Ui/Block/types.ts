@@ -13,4 +13,5 @@ export interface BlockProps {
   height?: boolean
   grow?: boolean
   style?: string
+  onClick?: () => void
 }
