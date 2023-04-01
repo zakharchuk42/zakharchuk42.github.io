@@ -11,15 +11,15 @@ export const Footer = () => {
         Follow Me
       </Typography>
       <Block>
-        <MyLink href='https://github.com/zakharchuk42'>
-          <IoLogoGithub {...iconStyle('GitHub', undefined, '26px')} />
-          /zakharchuk42
-        </MyLink>
-      </Block>
-      <Block>
         <MyLink href='https://www.linkedin.com/in/vit-zakharchuk/'>
           <IoLogoLinkedin {...iconStyle('LinkedIn', undefined, '26px')} />
           /vit-zakharchuk
+        </MyLink>
+      </Block>
+      <Block>
+        <MyLink href='https://github.com/zakharchuk42'>
+          <IoLogoGithub {...iconStyle('GitHub', undefined, '26px')} />
+          /zakharchuk42
         </MyLink>
       </Block>
     </Block>

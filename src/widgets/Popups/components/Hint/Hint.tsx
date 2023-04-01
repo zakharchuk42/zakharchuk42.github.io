@@ -27,7 +27,7 @@ export const Hint = () => {
       title={
         <Block justify='between'>
           <Typography font='subtitle' color='white'>
-            {`Hint №${counter + 1}`}
+            {`Hint ${counter + 1}/${hint.length}`}
           </Typography>
           <Block gap='xl'>
             <div
