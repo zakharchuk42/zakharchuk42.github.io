@@ -18,7 +18,10 @@ export const Register = () => {
             the evidence and documentation from the cold case file.
           </Typography>
         </Block>
-        <Block>
+        <Block gap='xl'>
+          <Button onClick={() => navigate(callPopup(POPUPS.HOW_TO_PLAY))}>
+            How to play?
+          </Button>
           <Button onClick={() => navigate(callPopup(POPUPS.ENTER_NAME))}>
             Solve a murder
           </Button>
