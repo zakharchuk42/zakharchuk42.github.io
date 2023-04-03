@@ -6,6 +6,7 @@ import { getImageUrl } from '../../../../helpers/utils/getImageUrl'
 import { OptionalPanel } from '../OptionalPanel/OptionalPanel'
 import { iconStyle } from '../../../../helpers/utils/iconStyle'
 import s from './File.module.scss'
+import clsx from 'clsx'
 
 export const File: React.FC<FileProps> = ({ item }) => {
   const { boolean: isHover, handleFalse, handleTrue } = useOpenState()
@@ -14,7 +15,9 @@ export const File: React.FC<FileProps> = ({ item }) => {
 
   return (
     <div
-      className={s.itemOnTable}
+      className={clsx(s.itemOnTable, {
+        [s.itemOnTableHover]: isHover,
+      })}
       onMouseEnter={handleTrue}
       onMouseLeave={handleFalse}
     >

@@ -71,16 +71,20 @@ export const EditNote = () => {
       }
     >
       <Block gap='xxl' direction='column'>
-        <CustomTextarea
-          placeholder={'Type you note'}
-          value={text}
-          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void =>
-            setText(e.target.value)
-          }
-        />
-        {isError && (
-          <Typography font='small'>*type min 5 characters</Typography>
-        )}
+        <Block direction='column' gap='sm'>
+          <CustomTextarea
+            placeholder={'Type you note'}
+            value={text}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void =>
+              setText(e.target.value)
+            }
+          />
+          {isError && (
+            <Typography font='small' color='white'>
+              *type min 5 characters
+            </Typography>
+          )}
+        </Block>
         <Block justify='end' gap='lg'>
           <Button onClick={cancel}>Cancel</Button>
           <Button onClick={submit}>{noteState.title}</Button>
